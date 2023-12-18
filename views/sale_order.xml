@@ -1,0 +1,28 @@
+<odoo>
+
+    <record id="view_sale_order_resupply_form" model="ir.ui.view">
+        <field name="name">sale.order.resupply.form</field>
+	<field name="model">sale.order</field>
+	<field name="inherit_id" ref="sale.view_order_form"></field>
+	<field name="arch" type="xml">
+		<xpath expr="//header" position="inside" >
+			<button name="resupply_order"
+				type="object"
+				string="Resupply"
+				states="draft" />
+		</xpath>
+		<xpath expr="//notebook" position="inside" >
+			<page string="Reabastecimientos" >
+				<br />
+				<group>
+					<field name="resupply_move_ids" readonly="1" />
+				</group>
+				<group>
+					<field name="resupply_move_line_ids" readonly="1" />
+				</group>
+			</page>
+		</xpath>
+        </field>
+    </record>
+
+</odoo>
